@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "Cite this outcome-review edition separately from the original experiments."
+title: "GBI-DCSE Assessment v0: BoundaryBench research update"
+version: "0-review-candidate"
+authors:
+  - name: "GBI BoundaryBench contributors"
+abstract: "A review edition retaining the frozen v0.1 result and adding selected GBI/DCSE, dataset, model and FHIR-representation outcomes, with explicit reproduction limits."

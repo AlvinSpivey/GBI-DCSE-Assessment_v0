@@ -1,0 +1,8 @@
+area,observed,next_evidence,deployment_claim
+Dataset integrity,"Counts, source-ID uniqueness and links checked in the supplied report",Approved population sampling and retained source provenance,IHS representativeness not established
+GBI and DCSE references,Declared reference suites reported passed; one erratum and three excluded claims retained,External source review and actual deployment tests,No clinical or general production approval
+Model execution,Eight model executions completed; no valid structured results,"New output-contract protocol, additional models and held-out complete tasks",Useful model completion not established
+FHIR representation,52102 deterministic conversions passed the reported R4 JSON-schema checks after repair,"Full validation, terminology, target implementation guide and approved test endpoint",Full FHIR/IHS conformance not established
+Policy,Synthetic rules exercised,Named institutional and Tribal policy review with acceptance criteria,Actual IHS policy admissibility not established
+Clinical and human factors,No qualifying clinical cohort or intended-user evaluation,"Approved protocol, reference adjudication and shadow-mode or prospective studies",Clinical validity not established
+Infrastructure,Software models of infrastructure were evaluated,Provision and test actual required platforms,Live TEE/BFT/ZK operation not established

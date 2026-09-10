@@ -1,0 +1,255 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="GBI-DCSE assessment v0: a BoundaryBench research update with highlighted changes and explicit evidence limits."><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'"><title>GBI-DCSE Assessment v0 | BoundaryBench update</title><style>
+:root{--ink:#1f2328;--muted:#59636e;--line:#d1d9e0;--yellow:#fff0a3;--paper:#fff;--wash:#f6f8fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wash);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}a{color:#0969da;text-decoration:none}a:hover{text-decoration:underline}.top{background:#24292f;color:#fff;padding:14px 24px;font-weight:600}.top small{display:block;color:#d7dce1;font-weight:400}.layout{display:grid;grid-template-columns:230px minmax(0,980px);gap:24px;max-width:1300px;margin:28px auto;padding:0 20px}aside{position:sticky;top:18px;align-self:start;font-size:13px}aside a{display:block;padding:7px 9px;color:var(--muted)}main{min-width:0;background:var(--paper);padding:34px;border:1px solid var(--line);border-radius:7px}h1{font-size:34px;line-height:1.18;letter-spacing:-.03em;margin:0 0 18px}h2{font-size:25px;line-height:1.3;border-bottom:1px solid var(--line);padding-bottom:8px;margin:0 0 18px}h3{font-size:20px;line-height:1.35;margin:24px 0 12px}section{padding:24px 0;scroll-margin-top:20px}section.updated{border-left:5px solid #bd8c00;margin-left:-19px;padding-left:14px}body:not(.plain) section.updated h2{background:linear-gradient(transparent 48%,var(--yellow) 48%);padding-left:5px}p{margin:0 0 15px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0}th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}th{background:var(--wash)}tr:nth-child(even){background:#fafbfc}.scroll{max-width:100%;overflow-x:auto}pre{background:#f6f8fa;padding:16px;overflow:auto;border-radius:6px;font-size:13px}code{background:#eff1f3;border-radius:4px;padding:2px 4px;font-size:.87em}pre code{padding:0}img{max-width:100%;height:auto}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;align-items:center}button{padding:8px 12px;background:#fff;border:1px solid #8c959f;border-radius:6px;color:var(--ink);cursor:pointer;font:600 13px system-ui}button:focus-visible{outline:3px solid #0969da;outline-offset:2px}button[aria-pressed=true]{background:var(--yellow)}.legend{padding:14px;background:#fff8d7;border:1px solid #d4b657;border-radius:6px;margin-bottom:20px;font-size:14px}body.changes-only section.baseline{display:none}footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}.figure-box{margin:28px 0;border:1px solid var(--line);padding:10px;border-radius:7px}body.plain section.updated{border-left-color:transparent}
+@media(max-width:900px){.layout{grid-template-columns:1fr}aside{position:static;display:flex;flex-wrap:wrap;font-size:12px}aside a{padding:4px 7px}main{padding:22px}h1{font-size:28px}table{min-width:580px}.top{padding:12px 20px}}
+@media print{aside,.controls,.top{display:none}.layout{display:block;max-width:none;margin:0;padding:0}main{border:0;padding:0}section{break-inside:auto}.scroll{overflow:visible}table{min-width:0;font-size:10pt}h2,h3{break-after:avoid}img{break-inside:avoid}}
+</style></head><body><header class="top">GBI-DCSE-Assessment_v0<small>Private review candidate / BoundaryBench outcome update</small></header><div class="layout"><aside aria-label="Document sections"><a href="#programmatic-verification-of-legacy-ehr-transformations">Programmatic Verification of Legacy-EHR Transformations</a><a href="#headline-empirical-result">Headline empirical result</a><a href="#why-this-benchmark-exists">Why this benchmark exists</a><a href="#what-boundarybench-evaluates">What BoundaryBench evaluates</a><a href="#verification-architecture">Verification architecture</a><a href="#frozen-evaluation-protocol">Frozen evaluation protocol</a><a href="#reproduce-or-inspect">Reproduce or inspect</a><a href="#limitations-and-next-experiments">Limitations and next experiments</a><a href="#repository-navigation">Repository navigation</a><a href="#licensing-boundary">Licensing boundary</a><a href="#figures">Figures</a></aside><main><div class="controls"><button id="highlight" aria-pressed="true">Yellow highlighting: on</button><button id="filter" aria-pressed="false">Show updated sections only</button><button id="print">Print</button><a href="artifacts/assessment_v0/dataset_summary.json">Inspect a source summary</a></div><div class="legend">Yellow means added or revised in this edition - not a pass, clinical approval or a statistical significance claim. This page is a static review, not an operational system.</div><h1>GBI-DCSE-Assessment_v0</h1>
+<section id="programmatic-verification-of-legacy-ehr-transformations" class="updated"><h2>Programmatic Verification of Legacy-EHR Transformations</h2>
+<p>A focused research update to <strong>GBI BoundaryBench</strong>. This edition retains the original
+research question, task families and headline v0.1 result, then adds the reported
+GBI/DCSE reference checks, dataset review, new model execution and FHIR-format repair.</p>
+<p><img src="docs/application/figures/updated.svg" alt="Assessment update" />
+<strong>Yellow identifies material added or revised in this edition. It does not mean
+that the result is positive, statistically significant or clinically approved.</strong>
+For the highlighted narrative, open <a href="index.html">the review page</a>.</p>
+<p><strong>Private review candidate.</strong> This edition is an evidence summary, not a full
+implementation release. No public-release or clinical approval is recorded here.</p>
+<p>GBI BoundaryBench is a research benchmark for testing the boundary between a
+plausible model proposal and an enterprise-admissible action. Its thesis remains:
+<strong>a model output is evidence, not authority.</strong></p>
+<pre><code class="language-text">MODEL PROPOSAL
+      -&gt; PROGRAMMATIC VERIFICATION
+      -&gt; ADMISSIBLE ACTION / QUARANTINE / REVIEW / REJECTION
+</code></pre>
+<p>The benchmark uses synthetic legacy-EHR-style records and explicit identity,
+provenance, terminology/version, temporal, evidence and policy requirements.
+This is not a clinical system, medical device, certified terminology crosswalk,
+or autonomous EHR write-back service. Generator references are not clinical truth.</p>
+</section>
+<section id="headline-empirical-result" class="updated"><h2>Headline empirical result</h2>
+<p><strong>Preserved v0.1 baseline.</strong> <code>Qwen/Qwen3-4B-Instruct-2507</code> completed 256 held-out
+synthetic tasks in three evidence modes: <code>output_only</code>, <code>token_top_k</code> and
+<code>full_category_evidence</code>. All 768 executions completed, but zero structured result
+records satisfied the benchmark contract.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align:right">Frozen v0.1 result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canonical executions</td>
+<td style="text-align:right">768</td>
+</tr>
+<tr>
+<td>Accepted structured result records</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Runner parse rejections</td>
+<td style="text-align:right">369</td>
+</tr>
+<tr>
+<td>Runner schema rejections</td>
+<td style="text-align:right">399</td>
+</tr>
+<tr>
+<td>Verified completions</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td style="text-align:right">0%</td>
+</tr>
+<tr>
+<td>Selective risk</td>
+<td style="text-align:right">Undefined at zero coverage</td>
+</tr>
+</tbody>
+</table></div>
+<p>Zero coverage is not evidence of useful selectivity or low clinical risk. Runner
+and downstream-verifier rejection histograms concern different stages and must
+not be added. The six original aggregate files remain unchanged in
+<a href="docs/application/ASSESSMENT_RESULTS.md"><code>artifacts/empirical/scored_v0_1</code></a>.</p>
+<h3>Assessment updates</h3>
+<p><img src="docs/application/figures/updated.svg" alt="Assessment update" /></p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Update</th>
+<th>Reported result</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U01 - Dataset context</td>
+<td>310 synthetic subjects; 52,102 canonical records; all state fields Massachusetts</td>
+<td>Integrity checks do not establish an IHS-representative cohort.</td>
+</tr>
+<tr>
+<td>U02 - Both reference halves</td>
+<td>BeTaL v0.2: 319 checks; GBI v2: 72; DCSE v3: 148; all reported passed</td>
+<td>Reference execution, not new model or patient trials.</td>
+</tr>
+<tr>
+<td>U03 - Original claim register</td>
+<td>99 claims: 95 met, 1 erratum, 3 out of scope</td>
+<td>The erratum and unsupported claims remain visible.</td>
+</tr>
+<tr>
+<td>U04 - Additional open model</td>
+<td>Qwen2.5-0.5B-Instruct: 8 completed, 0 format-admitted, 0 correct</td>
+<td>Inference works; this tested output workflow does not.</td>
+</tr>
+<tr>
+<td>U05 - FHIR conversion</td>
+<td>1,408 conversion failures before repair; 0 afterward across 52,102 records</td>
+<td>Deterministic R4 JSON-schema representation, not LLM or clinical performance.</td>
+</tr>
+<tr>
+<td>U06 - Next evidence</td>
+<td>Full FHIR/IHS conformance, policy authority and clinical validity remain unevaluated</td>
+<td>The next evaluation is specified, not assumed complete.</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are <strong>reported results from the supplied assessment records</strong>. Preparing this
+edition did not rerun the models or reference suites. Newly executed checks in
+this package concern only its file inventory and outcome arithmetic.</p>
+<p>Read <a href="CHANGELOG.md">what changed</a>, <a href="docs/application/ASSESSMENT_RESULTS.md">the full results narrative</a>
+and <a href="docs/reproducibility_guide.md">the evidence limits</a>.</p>
+</section>
+<section id="why-this-benchmark-exists" class="updated"><h2>Why this benchmark exists</h2>
+<p>Legacy EHR transformation is not just a text-generation problem. A proposed patient
+match, terminology mapping, FHIR resource or temporal classification has to meet
+explicit operational requirements. Malformed output, unsupported answers and
+correct abstention are different outcomes. An evaluation should preserve those
+distinctions rather than report every refusal as evidence of success.</p>
+<p><img src="docs/application/figures/updated.svg" alt="Assessment update" />
+The new evidence separates three questions: <strong>can the software execute; can it
+produce an admissible representation; and is the result appropriate for the
+intended institution and patients?</strong> Progress on one does not settle the others.</p>
+</section>
+<section id="what-boundarybench-evaluates" class="baseline"><h2>What BoundaryBench evaluates</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Required behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>patient_identity_normalization</code></td>
+<td>Normalize identity only with supporting evidence.</td>
+</tr>
+<tr>
+<td><code>orphan_duplicate_detection</code></td>
+<td>Identify missing or duplicate patient references.</td>
+</tr>
+<tr>
+<td><code>field_anomaly_bleed</code></td>
+<td>Detect contamination of structured fields.</td>
+</tr>
+<tr>
+<td><code>code_system_version_validation</code></td>
+<td>Distinguish supported, legacy and unsupported versions.</td>
+</tr>
+<tr>
+<td><code>rpms_to_fhir_mapping</code></td>
+<td>Map record shape with resource type and provenance.</td>
+</tr>
+<tr>
+<td><code>temporal_status_classification</code></td>
+<td>Separate active from historical evidence.</td>
+</tr>
+<tr>
+<td><code>evidence_sufficiency</code></td>
+<td>Abstain when required evidence is absent.</td>
+</tr>
+<tr>
+<td><code>policy_action_selection</code></td>
+<td>Apply the specified admit, quarantine, review or reject rules.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Allowed benchmark actions remain <code>ADMIT</code>, <code>ADMIT_HISTORICAL_ONLY</code>,
+<code>QUARANTINE_SLICE</code>, <code>ABSTAIN</code>, <code>EXPERT_REVIEW</code> and <code>REJECT</code>.</p>
+</section>
+<section id="verification-architecture" class="baseline"><h2>Verification architecture</h2>
+<p>The original benchmark distinguishes model execution from deterministic grading.
+v0.1 uses generator references for scoring. Later reference evaluations concern
+witness-based policy behavior under synthetic conditions. Neither is represented
+here as an approved institutional or clinical policy authority.</p>
+<p>This edition documents outcome-level scope only. It does not distribute the full
+verification implementation, operational interfaces or raw model archives.
+<a href="docs/reproducibility_guide.md">Review boundaries</a> are part of the result.</p>
+</section>
+<section id="frozen-evaluation-protocol" class="updated"><h2>Frozen evaluation protocol</h2>
+<p>The historical v0.1 evaluation and the later assessment must not be combined into
+one model score. The v0.1 input/output data were frozen before trusted scoring.
+The interrupted token-top-k run is not counted as an additional scored run.
+The three evidence modes reuse tasks: 768 executions are not 768 independent
+clinical cases.</p>
+<p><img src="docs/application/figures/updated.svg" alt="Assessment update" />
+The new Qwen2.5-0.5B run used eight original public-development fixtures, one per
+family. The larger dataset review describes a separate packaged 64-task development
+split and a 256-task held-out split. <strong>Eight is not a sample drawn from the 64 by
+this publication.</strong> The cohorts, models and purposes remain distinct.</p>
+</section>
+<section id="reproduce-or-inspect" class="baseline"><h2>Reproduce or inspect</h2>
+<p>Use Python 3.10 or newer for this report-only checker; no model account is needed:</p>
+<pre><code class="language-bash">python scripts/verify_review.py
+python -m unittest discover -s tests -v
+</code></pre>
+<p>These commands check the included file inventory, hashes and agreement among
+selected outcome summaries. They do not rerun inference, reconstruct withheld
+source data, execute full FHIR validation or confer permission to publish.
+Open <code>index.html</code> locally for yellow-highlighted changes and static figures.</p>
+</section>
+<section id="limitations-and-next-experiments" class="updated"><h2>Limitations and next experiments</h2>
+<p><img src="docs/application/figures/updated.svg" alt="Assessment update" /></p>
+<p>The canonical input is a separately identified Synthea alternative; the exact
+previous Pine Ridge source was unavailable. All 310 synthetic state fields are
+Massachusetts. One synthetic subject has an American Indian or Alaska Native race
+label; that fact alone neither demonstrates bias nor establishes transportability.
+The selection takes the first 310 sorted source bundles, not a random IHS sample.</p>
+<p>The revised converter preserves text observations with <code>valueString</code>. Its reported
+R4 JSON-schema success is not full resource-invariant, terminology, US Core,
+endpoint, policy or clinical validation. It is not 52,102 successful model outputs.</p>
+<p>The new small-model run had no valid task completions. More models, a revised
+output protocol and independently selected complete tasks are needed. Clinical
+and intended-user conclusions require their own approved study and reference
+adjudication. No IHS endorsement is implied.</p>
+<p>See <a href="docs/NEXT_STEPS.md">the staged next-evidence plan</a>.</p>
+</section>
+<section id="repository-navigation" class="baseline"><h2>Repository navigation</h2>
+<pre><code class="language-text">artifacts/empirical/scored_v0_1/  six unchanged historical aggregate files
+artifacts/assessment_v0/         selected outcome summaries, not execution logs
+docs/application/               familiar summary entry point and static figures
+docs/                           research scope, data card, limits and reviewer guide
+src/gbi_assessment_review/       new report-consistency checker only
+scripts/                        local entry point for that checker
+schemas/                        description of the report data, not clinical schemas
+tests/                          tests of the report-consistency checker
+data/                           description of data scope; no patient rows
+index.html                      offline review page with yellow update markers
+</code></pre>
+</section>
+<section id="licensing-boundary" class="baseline"><h2>Licensing boundary</h2>
+<p>The existing <code>LICENSE</code>, <code>DATA_LICENSE.md</code>, <code>DOCUMENTATION_LICENSE.md</code>, <code>NOTICE</code>
+and <code>THIRD_PARTY_NOTICES.md</code> are preserved. New report-checking software follows
+the software notice; new prose and figures follow the documentation notice.
+The original notices may name paths absent from this smaller distribution.
+No change to those notices revokes existing grants or licenses excluded material.</p>
+<p>See <a href="PUBLICATION_SCOPE.md">the publication scope</a> before any distribution.</p>
+</section><section id="figures" class="updated"><h2>Figures: denominators and limits remain visible</h2><div class="figure-box"><img src="docs/application/figures/dataset_counts.svg" alt="Canonical synthetic record counts"/></div><div class="figure-box"><img src="docs/application/figures/model_outcomes.svg" alt="Separate historical and added model-output results"/></div><div class="figure-box"><img src="docs/application/figures/fhir_conversion.svg" alt="Reported FHIR conversion before and after repair"/></div><div class="figure-box"><img src="docs/application/figures/claim_accounting.svg" alt="Original claim accounting"/></div></section><footer>Report-only edition assembled from supplied outcome records. No raw inference, full implementation or clinical reproduction is represented. No automatic network access.</footer></main></div><script>
+const h=document.getElementById('highlight'),f=document.getElementById('filter');
+h.addEventListener('click',()=>{const plain=document.body.classList.toggle('plain');h.setAttribute('aria-pressed',String(!plain));h.textContent='Yellow highlighting: '+(plain?'off':'on');});
+f.addEventListener('click',()=>{const only=document.body.classList.toggle('changes-only');f.setAttribute('aria-pressed',String(only));f.textContent=only?'Show all sections':'Show updated sections only';});
+document.getElementById('print').addEventListener('click',()=>window.print());
+let restoreOnly=false;window.addEventListener('beforeprint',()=>{restoreOnly=document.body.classList.contains('changes-only');document.body.classList.remove('changes-only');});window.addEventListener('afterprint',()=>{document.body.classList.toggle('changes-only',restoreOnly);});
+</script></body></html>

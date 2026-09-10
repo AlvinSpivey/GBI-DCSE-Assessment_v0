@@ -1,0 +1,38 @@
+{
+  "IHS_endpoint_calls": 0,
+  "US_Core_6_1_0_validated": false,
+  "after": {
+    "conversion_failures": 0,
+    "valid_by_resource": {
+      "Condition": 805,
+      "Encounter": 10934,
+      "Observation": 40053,
+      "Patient": 310
+    }
+  },
+  "before": {
+    "conversion_failures": 1408,
+    "valid_by_resource": {
+      "Condition": 805,
+      "Encounter": 10934,
+      "Observation": 38645,
+      "Patient": 310
+    }
+  },
+  "canonical_input_records": 52102,
+  "cautions": [
+    "Input statuses missing in the source remain unknown.",
+    "Source unit text does not establish UCUM equivalence.",
+    "Schema validity is not resource-invariant, terminology, implementation-guide or clinical validity."
+  ],
+  "clinical_approval": false,
+  "full_HL7_validator_run": false,
+  "implementation_included": false,
+  "is_model_generated_resource_score": false,
+  "record_kind": "selected_outcome_summary",
+  "repair": "Preserve text-valued observations using valueString instead of requiring every value to be numeric.",
+  "report_date": "2026-09-10",
+  "reported_schema_negative_controls": 5,
+  "reported_schema_negative_controls_rejected": 5,
+  "validation_level": "reported HL7 FHIR R4 4.0.1 JSON-schema checks on deterministic reference conversion"
+}

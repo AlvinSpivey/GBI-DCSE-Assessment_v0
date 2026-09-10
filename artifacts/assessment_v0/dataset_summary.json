@@ -1,0 +1,80 @@
+{
+  "IHS_representativeness_established": false,
+  "counts": {
+    "encounters": 10934,
+    "labs": 40053,
+    "patients": 310,
+    "problems": 805
+  },
+  "duplicate_source_ids": {
+    "encounters": 0,
+    "labs": 0,
+    "patients": 0,
+    "problems": 0
+  },
+  "independent_clinical_sample_size": null,
+  "metadata_hashes_total": 16,
+  "metadata_hashes_verified": 16,
+  "model_input_reference_fields": 0,
+  "notes": [
+    "Synthetic demographic fields do not describe actual patients.",
+    "Record count is not an independent-subject count.",
+    "These integrity checks do not establish honest acquisition or population suitability."
+  ],
+  "orphan_canonical_links": {
+    "encounters": 0,
+    "labs": 0,
+    "problems": 0
+  },
+  "provenance_kind": "synthetic_Synthea_alternative",
+  "raw_dataset_included": false,
+  "record_kind": "selected_outcome_summary",
+  "report_date": "2026-09-10",
+  "reported_corruption_events": 63780,
+  "selection": "first 310 sorted source bundle paths; not a random IHS sample",
+  "source_id_overlap": 0,
+  "source_note": "The exact earlier Pine Ridge source is documented as unavailable.",
+  "split_counts": {
+    "heldout_eval": {
+      "families": {
+        "code_system_version_validation": 32,
+        "evidence_sufficiency": 32,
+        "field_anomaly_bleed": 32,
+        "orphan_duplicate_detection": 32,
+        "patient_identity_normalization": 32,
+        "policy_action_selection": 32,
+        "rpms_to_fhir_mapping": 32,
+        "temporal_status_classification": 32
+      },
+      "tasks": 256
+    },
+    "public_dev": {
+      "families": {
+        "code_system_version_validation": 8,
+        "evidence_sufficiency": 8,
+        "field_anomaly_bleed": 8,
+        "orphan_duplicate_detection": 8,
+        "patient_identity_normalization": 8,
+        "policy_action_selection": 8,
+        "rpms_to_fhir_mapping": 8,
+        "temporal_status_classification": 8
+      },
+      "tasks": 64
+    }
+  },
+  "synthetic_ethnicity_counts": {
+    "Not Hispanic or Latino": 310
+  },
+  "synthetic_race_counts": {
+    "American Indian or Alaska Native": 1,
+    "Asian": 23,
+    "Black or African American": 35,
+    "Other": 31,
+    "White": 220
+  },
+  "synthetic_state_counts": {
+    "Massachusetts": 310
+  },
+  "task_id_overlap": 0,
+  "total_records": 52102
+}

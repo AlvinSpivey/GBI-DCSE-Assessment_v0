@@ -1,0 +1,17 @@
+{
+  "BeTaL_v0_2_checks_reported_passed": 319,
+  "DCSE_v3_checks_reported_passed": 148,
+  "GBI_v2_checks_reported_passed": 72,
+  "baseline_unit_checks": 109,
+  "claims_erratum": 1,
+  "claims_out_of_scope": 3,
+  "claims_recorded_met": 95,
+  "full_implementation_included": false,
+  "interpretation": "Passing a reference-suite check is not a patient-risk trial or approval of institutional policy.",
+  "new_execution_for_this_edition": false,
+  "new_model_executions_in_reference_suites": 0,
+  "record_kind": "selected_outcome_summary",
+  "registered_claims": 99,
+  "report_date": "2026-09-10",
+  "testable_claims": 96
+}

@@ -1,0 +1,9 @@
+task_family,completed,format_admitted,benchmark_correct,result,finish_reason,output_tokens,elapsed_seconds
+patient_identity_normalization,1,0,0,safe_parse_reject,eos,57,38.914289
+orphan_duplicate_detection,1,0,0,safe_parse_reject,length,384,94.142943
+field_anomaly_bleed,1,0,0,safe_schema_reject,eos,220,32.724087
+code_system_version_validation,1,0,0,safe_schema_reject,eos,316,42.057501
+rpms_to_fhir_mapping,1,0,0,safe_parse_reject,length,384,53.76073
+temporal_status_classification,1,0,0,safe_parse_reject,eos,203,28.401789
+evidence_sufficiency,1,0,0,safe_parse_reject,eos,332,45.390924
+policy_action_selection,1,0,0,safe_parse_reject,eos,148,22.386954

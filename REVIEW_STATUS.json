@@ -1,0 +1,11 @@
+{
+  "clinical_approval": false,
+  "edition": "v0",
+  "full_implementation_release": false,
+  "intended_repository": "AlvinSpivey/GBI-DCSE-Assessment_v0",
+  "legal_clearance": false,
+  "new_empirical_execution_in_this_edition": false,
+  "public_release_authorized": false,
+  "scope": "GBI/DCSE outcome summaries and a report-consistency checker",
+  "status": "PRIVATE_OWNER_REVIEW_CANDIDATE"
+}

@@ -1,0 +1,21 @@
+{
+  "benchmark_correct": 0,
+  "comparison_with_historical_model": "Different model, task subset and execution protocol; no direct model-ranking inference.",
+  "completed": 8,
+  "execution_site": "GitHub hosted CPU worker; locally loaded open weights; no inference-provider calls",
+  "format_admitted": 0,
+  "grade_histogram": {
+    "safe_parse_reject": 6,
+    "safe_schema_reject": 2
+  },
+  "held_out": false,
+  "length_limited": 2,
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "new_inference_for_this_edition": false,
+  "population": "eight original public-development fixtures, one per task family",
+  "population_risk_bound": null,
+  "raw_outputs_included": false,
+  "record_kind": "selected_outcome_summary",
+  "report_date": "2026-09-10",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+}
